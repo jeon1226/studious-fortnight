@@ -10,8 +10,7 @@ def head(a, i):
     
     
 def cluster_add(a, i, j):
-    a[i] = head(a, j)
-    a[j] = a[i]
+    a[head(a, i)] = head(a, j)
     
     
 def n_cluster(n, cities):
@@ -27,10 +26,10 @@ def n_cluster(n, cities):
 
 def roadsAndLibraries(n, c_lib, c_road, cities):
     if c_lib <= c_road:
-        return(c_lib * n)
+        return c_lib * n
     else:
         nc = n_cluster(n, cities)
-        return(c_road * (n - nc)  + c_lib * nc)
+        return c_road * (n - nc)  + c_lib * nc
         
         
 if __name__ == "__main__":
